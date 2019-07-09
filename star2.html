@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<HTML>
+<link rel="stylesheet" type="text/css" href="/star2.css">
+
+<head>
+</head>
+
+<body>
+    <div id="full-art"></div>
+
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script>
+        $.ajax({
+        type: "GET",
+        url: "http://localhost:7000/getArticles",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            for (var i=0; i<20; i++){
+                var article=$("<a/>");
+                article.text(response[i].title);
+                article.attr({"href": response[i].link});
+                article.attr({"target": "_blank"});
+                $("#full-art").append(article)
+            }
+        },
+    })
+
+
+
+
+
+    </script>
+</body>
+
+</HTML>
