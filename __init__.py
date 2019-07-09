@@ -13,7 +13,7 @@ def stylesheets(filename):
 
 @route('/getArticles')
 def get_articles():
-    feed = feedparser.parse("https://www.jpost.com/Rss/RssFeedsHeadlines.aspx")
+    feed = feedparser.parse("http://www.fifa.com/rss/index.xml")
     articles=[]
     for i in range(1,20):
         article = {"title": feed["entries"][i]["title"], "link": feed["entries"][i]["link"]}
